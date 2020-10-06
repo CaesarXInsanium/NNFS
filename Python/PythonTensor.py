@@ -1,4 +1,4 @@
-from random import random
+import random
 import numpy as np
 
 class Tensor():
@@ -17,7 +17,7 @@ class Tensor():
 
                 return [recur(index+1) for i in range(shape[index])]
 
-            return [random() for i in range(shape[index])]
+            return [0 for i in range(shape[index])]
         return recur()
     def __str__(self):
         return "Tensor:\n"+str(self.tensor) + "\nShape:\n" + str(self.tensor_shape)
@@ -25,9 +25,9 @@ class Tensor():
     @staticmethod
     def dot(tensor1 , tensor2):
         raise NotImplementedError
-
+  
 
 if __name__ =="__main__":
     t = Tensor([10,10])
-    x = Tensor([10,10])
-    print(np.dot(t.tensor,x.tensor))
+    for x in t.tensor:
+        print(x)
