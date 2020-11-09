@@ -28,13 +28,13 @@ pub mod chap1{
             }
         }
 
-        pub fn input<T>(&self,inp: &[T]) -> Vec<f64> where T:std::convert::Into<f64> + Clone{
+        pub fn input<T>(&self,inp: &[T]) -> f64 where T:std::convert::Into<f64> + Clone{
             assert!(self.weights.len() == inp.len());
-            let mut out: Vec<f64>;
-            for (i, w) in inp.iter().zip(self.weights){
-                out.push({i.clone().into()} * w)
+            let mut total:f64 = 0.0;
+            for (i, w) in inp.iter().zip(self.weights.as_slice()){
+                total = {i.clone().into() * w} + total;
             }
-            out
+            total + self.bias
         }
         
         // fn input(&self, &[f64]) -> [f64:]{
