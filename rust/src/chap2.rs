@@ -73,22 +73,22 @@ pub fn is_homologous<T>(x: &Vec<Vec<T>>) -> bool{
 //     x[0].len() == y.len()
 
 // }
-// pub fn matrix_mul(x :&Vec<Vec<f64>>,y :&Vec<Vec<f64>>) -> Vec<Vec<f64>>{
-//     assert!(is_homologous(&x));
-//     assert!(is_homologous(&y));
-//     //assert!(does_shape_match(&x, &y));
+pub fn matrix_mul(x :&Vec<Vec<f64>>,y :&Vec<Vec<f64>>) -> Vec<Vec<f64>>{
+    assert!(is_homologous(&x));
+    assert!(is_homologous(&y));
+    //assert!(does_shape_match(&x, &y));
 
-//     let mut result : [[f64;y[0].len()];x.len()];
-//     for i in 0..x.len()-1{
-//         for j in 0..y[0].len()-1{
-//             for k in 0..y[0].len()-1{
-//                 result[i][j] += x[i][k] + y[k][j];
-//             }
-//         }
-//     }
-//     result
+    let mut result : [[f64;y[0].len()];x.len()];
+    for i in 0..x.len()-1{
+        for j in 0..y[0].len()-1{
+            for k in 0..y[0].len()-1{
+                result[i][j] += x[i][k] + y[k][j];
+            }
+        }
+    }
+    result
  
-// }
+}
 
 // pub fn practice4(){
 //     let inputs: Vec<Vec<f64>> = vec!(
@@ -103,7 +103,7 @@ pub fn is_homologous<T>(x: &Vec<Vec<T>>) -> bool{
 //     );
 //     let biases: Vec<f64> = vec!(2.0,3.0, 0.5);
 
-//     let output = matrix_mul(&inputs, &weights);
+//     let output = matrix_mul(&inputs, &transpose_vec(&weights)();
 //     println!("Output: {:?}", output)
 
 
